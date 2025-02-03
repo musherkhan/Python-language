@@ -1,0 +1,54 @@
+Decorator ka Simple Matlab
+Socho, tumhare paas ek cake hai (function). Ab tum chaahte ho ki is cake ke upar icing laga do (extra functionality), bina cake ko badle.
+	
+Icing lagaane ka kaam hum decorator se karenge.
+
+1. Basic Cake Example (Original Function):
+python
+Copy
+def say_hello():
+    print("Hello!")
+Ab say_hello() function hello print karega. Yeh hai tumhara basic cake. Simple.
+
+2. Icing (Decorator) Banate hain:
+Ab, icing (decorator) banaate hain, jo say_hello() function ke aas paas kuch extra kaam karega. Matlab, function ke pehle aur baad mein kuch aur bhi karwayenge.
+
+python
+Copy
+def my_decorator(func):
+    def wrapper():
+        print("Ab cake par icing laga rahe hain!")
+        func()  # Yaha pe original function ko call kar rahe hain.
+        print("Icing lag gayi!")
+    return wrapper
+Explanation:
+
+my_decorator ek function hai jo doosre function (jaise say_hello()) ko modify karne ka kaam karega.
+wrapper() ek aur function hai jo say_hello() ke aas paas kaam karta hai. Pehle icing (extra print statement) lagaata hai, phir original function ko call karta hai.
+3. Decorator ko Apply Karna (Cake Par Icing Lagaana):
+python
+Copy
+@my_decorator
+def say_hello():
+    print("Hello!")
+Yaha pe @my_decorator ka matlab hai ki hum decorator ko apply kar rahe hain say_hello() function pe. Matlab, say_hello() ke aas paas wrapper() function ka kaam ho jayega.
+
+4. Function Call Karna:
+Ab hum say_hello() ko call karenge.
+
+python
+Copy
+say_hello()
+Output:
+
+nginx
+Copy
+Ab cake par icing laga rahe hain!
+Hello!
+Icing lag gayi!
+Samajh mein aaya?
+
+Pehle humne ek basic function (cake) banaya tha (say_hello()).
+Fir humne ek decorator banaya (icing) jo function ke aas paas kuch extra kaam karega.
+Jab hum @my_decorator likhte hain, tab hum say_hello() ke upar "icing" laga rahe hote hain.
+Fir jab hum say_hello() call karte hain, wo decorator ke through jaata hai, pehle extra kaam hota hai, phir asli kaam hota hai.
